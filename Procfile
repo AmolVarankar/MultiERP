@@ -1,1 +1,1 @@
-web: gunicorn Multiweb.wsgi --log-file -
+web: gunicorn Multiweb.wsgi     
