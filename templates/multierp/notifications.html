@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+{% include 'multierp/header.html' %}
+
+{% for notification in notifications %}
+    <div class="row">
+      <div class="col">
+        <div class="card card-body">
+          <a class="btn btn-primary  btn-sm btn-block" href="{% url 'multierp:detail_order' notification.order.id %}">
+            <b>User : {{notification.user}}</b><br> 
+            <b>Order : {{notification.order}}</b><br>
+            <b>{{notification.text_preview}}</b></a> 
+        </div>
+      </div>
+    </div>    
+{% endfor %}
+
+    
+{% endblock %}

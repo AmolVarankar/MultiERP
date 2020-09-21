@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% include 'multierp/header.html' %}
+
+{% block content %}
+
+{% include 'multierp/header.html' %}
+<hr>
+<div class="row">
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center bg-info text-white  mb-3" >
+			  	<div class="card-header">
+			  		<h5 class="card-title">Product</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{ order.product }}</h3>
+			  	</div>
+			</div>
+		</div>
+    </div>
+    
+    <div class="col">
+		<div class="col-md">
+			<div class="card text-center bg-info text-white  mb-3" >
+			  	<div class="card-header">
+			  		<h5 class="card-title">Company</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{ order.company }}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center bg-info text-white  mb-3" >
+			  	<div class="card-header">
+			  		<h5 class="card-title">Date order was created</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{ order.date_created }}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center bg-info text-white  mb-3" >
+			  	<div class="card-header">
+			  		<h5 class="card-title">Current Status</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{ order.status}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+</div>
+	
+<div class="row">
+    <div class="col">
+		<div class="col-md">
+			<div class="card text-center bg-info text-white  mb-3" >
+			  	<div class="card-header">
+			  		<h5 class="card-title">Sales Registered By</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{ order.sales_registration }}</h3>
+			  	</div>
+			</div>
+		</div>
+    </div>
+    
+    <div class="col">
+		<div class="col-md">
+			<div class="card text-center bg-info text-white  mb-3" >
+			  	<div class="card-header">
+			  		<h5 class="card-title">Operation Status Changed By</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{ order.operation_handler }}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center bg-info text-white  mb-3" >
+			  	<div class="card-header">
+			  		<h5 class="card-title">Finance Status Changed By</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{ order.finance_handler }}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center bg-info text-white  mb-3" >
+			  	<div class="card-header">
+			  		<h5 class="card-title">Shipping Status Changed By</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{ order.shipping_handler }}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock content %}
