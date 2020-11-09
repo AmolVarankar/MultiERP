@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '+_*u%%n@=e6(t4ej&esng6*y*!0b0jlc1m4yt3uz4u%qty+q=$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['multidimensionsweb.herokuapp.com','127.0.0.1']
 
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'widget_tweaks',
     'django_filters',
+    'import_export',
 ]
 
 MIDDLEWARE = [
@@ -124,8 +125,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 #STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+IMPORT_EXPORT_USE_TRANSACTIONS = True
 
 STATIC_URL = '/static/'
 
-#STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
-LOGIN_REDIRECT_URL ='/mainpage.html/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
+LOGIN_REDIRECT_URL ='/hompepage.html/'
