@@ -1,18 +1,8 @@
-{% load static %}
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="nav-link" href="{% url 'multierp:mainpage' %}">
+  <a class="nav-link" href="{% url 'multierp:homepage' %}">
     <h5>Multidimensions</h5>
   </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <a class="nav-link" href="{% url 'multierp:logout_req' %}">
+  <a class="nav-link" href="{% url 'multierp:logout_req' %}" style="position:relative; float: right;">
     <h5>Logout</h5>
   </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
 </nav>

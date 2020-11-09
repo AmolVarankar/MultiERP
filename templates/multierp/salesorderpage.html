@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+
+{% block title %}
+    Sales Order page
+{% endblock %}
+
+{% block content %}
+{% include 'multierp/header.html' %}
+<br>
+
+<h1 style="text-align: center;">Sales Order Page</h1>
+<div class="row">
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center bg-info text-white  mb-3" >
+			  	<div class="card-header">
+			  		<h5 class="card-title">Total Orders</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{total_orders}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center bg-success text-white  mb-3" >
+			  	<div class="card-header">
+			  		<h5 class="card-title">Orders Delivered</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{delivered}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white bg-danger mb-3" id="orders-pending">
+			  	<div class="card-header">
+			  		<h5 class="card-title">Orders Pending</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{pending}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col">
+		<div class="card card-body border-0">
+			<form method="get">
+		    {% for field in filter.form %}
+		    	{{field.label}}
+				{{field|add_class:'form-control-sm'}}
+				&nbsp;&nbsp;&nbsp;&nbsp;
+			{% endfor %}
+			<br>
+			<br>
+		    <button class="btn btn-primary" type="submit">Search</button>
+		  </form>
+		</div>
+	</div>
+</div>
+
+<div class="col-md-12">
+	<h5>Search Results</h5>
+	<div class="card card-body">
+		<table class="table table-sm" border="2px">
+			<tr>
+				<th>Product</th>
+				<th>Date Orderd</th>
+				<th>Status</th>
+				{% if perms.multierp.change_salesorder %}
+					<th>Update</th>
+				{% endif %}				
+				{% if perms.multierp.delete_salesorder %}
+					<th>Remove</th>
+				{% endif %}
+				<th>Details</th>
+			</tr>
+			{% for order in orders %}
+				<tr>
+					<td>{{order.SO_no}}</td>
+					<td>{{order.SO_Date}}</td>	
+					<td>{{order.Status}}</td>
+					{% if perms.multierp.change_salesorder %}
+						<td><a class="btn btn-sm btn-warning" href="{% url 'multierp:updatesalesorder' order.id %}">Update</a></td>
+					{% endif %}
+					{% if perms.multierp.delete_salesorder %}
+						<td><a class="btn btn-sm btn-danger" href="{% url 'multierp:deletesalesorder' order.id %}">Cancel</a></td>
+					{% endif %}					
+					<td><a class="btn btn-sm btn-primary" href="{% url 'multierp:salesorderdetails' order.id %}">Details</a></td>
+				</tr>
+			{% endfor %}
+		</table>
+	</div>
+</div>
+
+
+
+<div class="col-md-12">
+	<h5>Latest Orders</h5>
+	<div class="card card-body">
+		{% if perms.multierp.add_salesorder %}
+			<a class="btn btn-primary  btn-sm btn-block" href="{% url 'multierp:createsalesorder' %}">Create Sales Order</a>
+		{% endif %}
+		<table class="table table-sm" border="2px">
+			<tr>
+				<th>Product</th>
+				<th>Date Orderd</th>
+				<th>Status</th>
+				{% if perms.multierp.change_salesorder %}
+					<th>Update</th>
+				{% endif %}				
+				{% if perms.multierp.delete_salesorder %}
+					<th>Remove</th>
+				{% endif %}
+				<th>Details</th>
+			</tr>
+			{% for order in orders %}
+				<tr>
+					<td>{{order.SO_no}}</td>
+					<td>{{order.SO_Date}}</td>	
+					<td>{{order.Status}}</td>
+					{% if perms.multierp.change_salesorder %}
+						<td><a class="btn btn-sm btn-warning" href="{% url 'multierp:updatesalesorder' order.id %}">Update</a></td>
+					{% endif %}
+					{% if perms.multierp.delete_salesorder %}
+						<td><a class="btn btn-sm btn-danger" href="{% url 'multierp:deletesalesorder' order.id %}">Cancel</a></td>
+					{% endif %}					
+					<td><a class="btn btn-sm btn-primary" href="{% url 'multierp:salesorderdetails' order.id %}">Details</a></td>
+				</tr>
+			{% endfor %}
+		</table>
+	</div>
+</div>
+
+{% endblock content %}

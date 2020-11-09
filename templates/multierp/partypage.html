@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block title %}
+    Party page
+{% endblock %}
+
+{% block content %}
+{% include 'multierp/header.html' %}
+<br>
+
+<div class="row">
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center bg-info text-white  mb-3" >
+			  	<div class="card-header">
+			  		<h5 class="card-title">Total Parties</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{partycount}}</h3>
+			  	</div>
+			</div>
+		</div>
+    </div>
+</div>
+
+<div class="row">
+	<div class="col">
+		<div class="card card-body border-0">
+			<form method="GET">
+			{% for field in filter.form %}
+				{{field.label}}:
+				&nbsp;
+				{{field|add_class:'form-control-sm'}}
+				&nbsp;&nbsp;&nbsp;&nbsp;
+			{% endfor %}
+			<br>
+			<br>
+		    <button class="btn btn-primary" type="submit" onclick="partySearch">Search</button>
+		  </form>
+		</div>
+	</div>
+</div>
+
+
+<div class="col-md-12" id="searchdiv">
+	<h5>Search Results</h5>
+	<div class="card card-body">	
+		<table class="table table-sm" border="2px">
+			<tr border="2px">
+				<th>Party</th>
+				<th>Date Orderd</th>
+				<th>Status</th>
+				{% if perms.multierp.change_party %}
+					<th>Update</th>
+				{% endif %}
+				{% if perms.multierp.delete_party %}
+					<th>Remove</th>
+				{% endif %}
+				<th>Details</th>
+			</tr>
+			{% for party in searchparty %}
+				<tr border="2px">
+					<td>{{party.Party_Code}}</td>
+					<td>{{party.Party_Date}}</td>	
+					<td>{{party.Status}}</td>
+					{% if perms.multierp.change_party %}
+					 <td><a class="btn btn-sm btn-warning" href="{% url 'multierp:updateparty' party.id %}">Update</a></td>
+					{% endif %}						
+					{% if perms.multierp.delete_party %}
+						<td><a class="btn btn-sm btn-danger" href="{% url 'multierp:deleteparty' party.id %}">Cancel</a></td>
+					{% endif %}						
+					<td><a class="btn btn-sm btn-primary" href="{% url 'multierp:partydetails' party.id %}">Details</a></td>
+				</tr>
+			{% endfor %}
+		</table>
+	</div>
+</div>
+
+
+<div class="col-md-12">
+		<h5>Latest 5 Parties</h5>
+		<div class="card card-body">	
+		{% if perms.multierp.add_party %}			
+			<a class="btn btn-primary  btn-sm btn-block" href="{% url 'multierp:createparty' %}">Create Party</a>
+		{% endif %}	
+			<table class="table table-sm" border="2px">
+				<tr border="2px">
+					<th>Party</th>
+					<th>Date Orderd</th>
+					<th>Status</th>
+					{% if perms.multierp.change_party %}
+						<th>Update</th>
+					{% endif %}
+					{% if perms.multierp.delete_party %}
+						<th>Remove</th>
+					{% endif %}
+					<th>Details</th>
+				</tr>
+				{% for party in latest_party %}
+					<tr border="2px">
+						<td>{{party.Party_Code}}</td>
+						<td>{{party.Party_Date}}</td>	
+						<td>{{party.Status}}</td>
+						{% if perms.multierp.change_party %}
+						 <td><a class="btn btn-sm btn-warning" href="{% url 'multierp:updateparty' party.id %}">Update</a></td>
+						{% endif %}						
+						{% if perms.multierp.delete_party %}
+							<td><a class="btn btn-sm btn-danger" href="{% url 'multierp:deleteparty' party.id %}">Cancel</a></td>
+						{% endif %}						
+						<td><a class="btn btn-sm btn-primary" href="{% url 'multierp:partydetails' party.id %}">Details</a></td>
+					</tr>
+				{% endfor %}
+		</table>
+	</div>
+</div>
+
+
+
+{% endblock content %}

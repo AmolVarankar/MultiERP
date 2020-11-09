@@ -3,30 +3,30 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User 
 from django import forms
 
-from .models import Muser, Order
+from .models import *
 
-class CreateOrderForm(ModelForm):
+class CreateSalesOrderForm(ModelForm):
     class Meta:
-        model = Order
-        fields = ['product','company','status','sales_registration']
+        model = SalesOrder
+        fields = '__all__'
+        exclude= ['Status']
 
-class UpdateOrderForm1(ModelForm):
+class UpdateSalesOrderForm(ModelForm):
         class Meta:
-            model = Order
-            fields = ['product','company','status','operation_handler',]
-            #fields = ['product','company','status','sales_registration','operation_handler',]
+            model = SalesOrder
+            fields = '__all__'
+            
 
-class UpdateOrderForm2(ModelForm):
-        class Meta:
-            model = Order
-            fields = ['product','company','status','finance_handler',]
-            #fields = ['product','company','status','sales_registration','operation_handler','finance_handler',]
+class CreatePurchaseOrderForm(ModelForm):
+    class Meta:
+        model = PurchaseOrder
+        fields = '__all__'
+        exclude= ['Status']
 
-class UpdateOrderForm3(ModelForm):            
+class UpdatePurchaseOrderForm(ModelForm):
         class Meta:
-            model = Order
-            fields = ['product','company','status','shipping_handler',]
-            #fields = ['product','company','status','sales_registration','operation_handler','finance_handler','shipping_handler',]
+            model = PurchaseOrder
+            fields = '__all__'
 
 class SignUpForm(UserCreationForm):
 
@@ -47,3 +47,35 @@ class SignUpForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = Muser
         fields = UserCreationForm.Meta.fields + ('first_name', 'last_name', 'email','user_type')            
+
+class SearchItemForm(ModelForm):
+    class Meta:
+        model = Item
+        fields = '__all__'
+
+class CreateItemForm(ModelForm):
+    class Meta:
+        model = Item
+        fields = ["item_code","item_description","item_name","item_type","item_category","item_group","alternate_sw_code","site","HSN_code"]
+
+class UpdateItemForm(ModelForm):
+    class Meta:
+        model = Item
+        fields = '__all__'
+
+class SearchPartyForm(ModelForm):
+    class Meta:
+        model = Party
+        fields = '__all__'
+
+class CreatePartyForm(ModelForm):
+    class Meta:
+        model = Party
+        fields = '__all__'
+        exclude = ['Status']
+
+class UpdatePartyForm(ModelForm):
+    class Meta:
+        model = Party
+        fields = '__all__'
+

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="text-align:center;">
+    <h1>Multidimensions</h1>
+    <h5>Friction Management People</h5>
+
+    <div class="row" style="margin-top: 1rem; position: relative;">
+        <div class="col">
+            <div class="card" style="width:80%">
+                <div class="card-body" border:2px>
+                <h5 class="card-title">Item</h5>
+                <a class="btn btn-primary" href="{% url 'multierp:itempage' %}">Item</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card" style="width:80%">
+                <div class="card-body">
+                <h5 class="card-title">Order</h5>
+                <a class="btn btn-primary" href="{% url 'multierp:salesorderpage' %}">Sales Order</a>
+                <a class="btn btn-primary" href="{% url 'multierp:purchaseorderpage' %}">Purchase Order</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card" style="width:80%">
+                <div class="card-body">
+                <h5 class="card-title">Party</h5>
+                    <a class="btn btn-primary" href="{% url 'multierp:partypage' %}">Party</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

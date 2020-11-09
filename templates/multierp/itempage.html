@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+
+{% block title %}
+    Item page
+{% endblock %}
+
+{% block content %}
+{% include 'multierp/header.html' %}
+<br>
+
+<div class="row">
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center bg-info text-white  mb-3" >
+			  	<div class="card-header">
+			  		<h5 class="card-title">Total Items</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{total_items}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col">
+		<div class="card card-body border-0">
+			<form method="get">
+		    {% for field in filter.form %}
+		    	{{field.label}}
+				{{field|add_class:'form-control-sm'}}
+				&nbsp;&nbsp;&nbsp;&nbsp;
+			{% endfor %}
+			<br>
+			<br>
+		    <button class="btn btn-primary" type="submit" >Search</button>
+		  </form>
+		</div>
+	</div>
+</div>
+
+<div class="col-md-12">
+	<h3>Search Results</h3>
+	<div class="card card-body">
+		<table class="table table-sm" border="2px">
+			<tr>
+				<th>Item</th>
+				<th>Date Orderd</th>
+				<th>Status</th>
+				{% if perms.multierp.change_item %}
+					<th>Update</th>
+				{% endif %}
+				{% if perms.multierp.change_item %}
+					<th>Remove</th>
+				{% endif %}
+				<th>Details</th>
+			</tr>
+			{% for item in searchitems %}
+				<tr>
+					<td>{{item.item_code}}</td>
+					<td>{{item.item_date}}</td>
+					<td>{{item.status}}</td>
+					{% if perms.multierp.change_item %}
+						<td><a class="btn btn-sm btn-warning" href="{% url 'multierp:updateitem' item.item_code %}">Update</a></td>
+					{% endif %}
+					{% if perms.multierp.change_item %}
+						<td><a class="btn btn-sm btn-danger" href="{% url 'multierp:deleteitem' item.item_code %}">Cancel</a></td>
+					{% endif %}						
+					<td><a class="btn btn-sm btn-primary" href="{% url 'multierp:itemdetails' item.item_code %}">Details</a></td>
+				</tr>
+			{% endfor %}
+		</table>
+	</div>
+</div>
+
+<div class="col-md-12">
+		<h5>Latest 5 Items</h5>
+		<div class="card card-body">
+			{% if perms.multierp.add_item %}						
+				<a class="btn btn-primary  btn-sm btn-block" href="{% url 'multierp:createitem' %}">Create Item</a>
+			{% endif %}
+			<table class="table table-sm" border="2px">
+				<tr>
+					<th>Item</th>
+					<th>Date Orderd</th>
+					<th>Status</th>
+					{% if perms.multierp.change_item %}
+						<th>Update</th>
+					{% endif %}
+					{% if perms.multierp.delete_item %}
+						<th>Remove</th>
+					{% endif %}
+					<th>Details</th>
+				</tr>
+				{% for item in items %}
+					<tr>
+						<td>{{item.item_code}}</td>
+						<td>{{item.item_date}}</td>
+						<td>{{item.status}}</td>
+						{% if perms.multierp.change_item %}
+							<td><a class="btn btn-sm btn-warning" href="{% url 'multierp:updateitem' item.item_code %}">Update</a></td>
+						{% endif %}
+						{% if perms.multierp.change_item %}
+							<td><a class="btn btn-sm btn-danger" href="{% url 'multierp:deleteitem' item.item_code %}">Cancel</a></td>
+						{% endif %}						
+						<td><a class="btn btn-sm btn-primary" href="{% url 'multierp:itemdetails' item.item_code %}">Details</a></td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+
+
+{% endblock content %}

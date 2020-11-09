@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<table class="table table-sm table-bordered">
+	<tr>
+		<th>Item code</th>
+		<th>Item description</th>
+		<th>Item name</th>
+		<th>Item type</th>
+		<th>Item category</th>
+		<th>Item group</th>
+		<th>Item date</th>
+		<th>Status</th>
+		<th>Alternate sw code</th>
+		<th>Site</th>
+		<th>HSN code</th>
+	</tr>
+		<tr>
+			<td>{{item.item_code}}</td>
+			<td>{{item.item_description}}</td>	
+			<td>{{item.item_name}}</td>
+			<td>{{item.item_type}}</td>
+			<td>{{item.item_category}}</td>
+			<td>{{item.item_group}}</td>
+			<td>{{item.item_date}}</td>
+			<td>{{item.status}}</td>
+			<td>{{item.alternate_sw_code}}</td>
+			<td>{{item.site}}</td>
+			<td>{{item.HSN_code}}</td>
+		</tr>
+</table>
+
+
+{% endblock %}

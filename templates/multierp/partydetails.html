@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<table class="table table-sm table-bordered">
+	<tr>
+        <th>Party Date</th>
+        <th>Party Code</th>
+        <th>Party Details Description</th>
+        <th>Status</th>
+        <th>Currency</th>
+        <th>Category</th>
+        <th>Beneficiary Details</th>
+        <th>Party Type</th>
+        <th>Remarks</th>
+        <th>Comments</th>
+        <th>Narration</th>
+        <th>GST Party Type</th>
+        <th>GTA Applicable</th>
+        <th>Party Group</th>
+        <th>Credit Limit</th>
+        <th>Credit Days</th>
+        <th>Inco Terms</th>
+        <th>Form Name</th>
+        <th>Contact Name</th>
+        <th>Cheque Clearing days</th>
+        <th>Shelf Type</th>
+        <th>Shelf Value</th>
+        <th>Price Value Flag</th>
+        <th>Price Value</th>
+        <th>Rating</th>
+        <th>Party Tax Class Code</th>
+        <th>Party Tax Class Desc</th>
+        <th>Email Id</th>
+        <th>Transporter Id</th>
+        <th>AutoDx XML Format</th>
+        <th>AutoDx CSV Format</th>
+        <th>Sender ID</th>
+        <th>Receiver ID</th>
+        <th>Dealer Site Code</th>
+        <th>Dealer Parent Site Code</th>
+        <th>Supplier Login Id</th>
+        <th>Customer Login Id</th>
+
+	</tr>
+		<tr>
+            <td>{{party.Party_Date}}</td>
+            <td>{{party.Party_Code}}</td>
+            <td>{{party.Party_Details_Description}}</td>
+            <td>{{party.Status}}</td>
+            <td>{{party.Currency}}</td>
+            <td>{{party.Category}}</td>
+            <td>{{party.Beneficiary_Details}}</td>
+            <td>{{party.Party_Type}}</td>
+            <td>{{party.Remarks}}</td>
+            <td>{{party.Comments}}</td>
+            <td>{{party.Narration}}</td>
+            <td>{{party.GST_Party_Type}}</td>
+            <td>{{party.GTA_Applicable}}</td>
+            <td>{{party.Party_Group}}</td>
+            <td>{{party.Credit_Limit}}</td>
+            <td>{{party.Credit_Days}}</td>
+            <td>{{party.Inco_Terms}}</td>
+            <td>{{party.Form_Name}}</td>
+            <td>{{party.Contact_Name}}</td>
+            <td>{{party.Cheque_Clearing_days}}</td>
+            <td>{{party.Shelf_Type}}</td>
+            <td>{{party.Shelf_Value}}</td>
+            <td>{{party.Price_Value_Flag}}</td>
+            <td>{{party.Price_Value}}</td>
+            <td>{{party.Rating}}</td>
+            <td>{{party.Party_Tax_Class_Code}}</td>
+            <td>{{party.Party_Tax_Class_Desc}}</td>
+            <td>{{party.Email_Id}}</td>
+            <td>{{party.Transporter_Id}}</td>
+            <td>{{party.AutoDx_XML_Format}}</td>
+            <td>{{party.AutoDx_CSV_Format}}</td>
+            <td>{{party.Sender_ID}}</td>
+            <td>{{party.Receiver_ID}}</td>
+            <td>{{party.Dealer_Site_Code}}</td>
+            <td>{{party.Dealer_Parent_Site_Code}}</td>
+            <td>{{party.Supplier_Login_Id}}</td>
+            <td>{{party.Customer_Login_Id}}</td>
+		</tr>
+</table>
+
+
+{% endblock %}

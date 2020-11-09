@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<table class="table table-sm table-bordered">
+	<tr>
+        <th>PO no</th>
+        <th>SQ SPO DGRN No</th>
+        <th>Status</th>
+        <th>PO Date</th>
+        <th>PO Description</th>
+        <th>PO type</th>
+        <th>Transaction category</th>
+        <th>Site</th>
+        <th>Customer Code</th>
+        <th>Customer Name</th>
+        <th>Site address</th>
+        <th>Accounting Site</th>
+        <th>Ac code</th>
+        <th>Currency</th>
+        <th>Exchange Rates</th>
+        <th>Credit Terms</th>
+        <th>Delivery Terms</th>
+        <th>Delivery Mode</th>
+        <th>Reference</th>
+        <th>Inco Terms</th>
+        <th>Remarks</th>
+        <th>Comments</th>
+	</tr>
+    <tr>
+        <td>{{order.PO_no}}</td>
+        <td>{{order.SQ_SPO_DGRN_No}}</td>
+        <td>{{order.Status}}</td>
+        <td>{{order.PO_Date}}</td>
+        <td>{{order.PO_Description}}</td>
+        <td>{{order.PO_type}}</td>
+        <td>{{order.Transaction_category}}</td>
+        <td>{{order.Site}}</td>
+        <td>{{order.Customer_Code}}</td>
+        <td>{{order.Customer_Name}}</td>
+        <td>{{order.Site_address}}</td>
+        <td>{{order.Accounting_Site}}</td>
+        <td>{{order.Ac_code}}</td>
+        <td>{{order.Currency}}</td>
+        <td>{{order.Exchange_Rates}}</td>
+        <td>{{order.Credit_Terms}}</td>
+        <td>{{order.Delivery_Terms}}</td>
+        <td>{{order.Delivery_Mode}}</td>
+        <td>{{order.Reference}}</td>
+        <td>{{order.Inco_Terms}}</td>
+        <td>{{order.Remarks}}</td>
+        <td>{{order.Comments}}</td>
+    </tr>
+</table>
+
+
+{% endblock %}
