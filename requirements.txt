@@ -13,6 +13,7 @@ decorator==4.4.2
 defusedxml==0.6.0
 distlib==0.3.0
 Django==3.0.6
+django-widget-tweaks==1.4.8
 entrypoints==0.3
 filelock==3.0.12
 gunicorn==20.0.4
@@ -59,6 +60,7 @@ pyparsing==2.4.7
 pyrsistent==0.16.0
 python-dateutil==2.8.1
 pytz==2019.3
+pywin32==227
 pywinpty==0.5.7
 pyzmq==19.0.0
 requests==2.23.0
